@@ -23,7 +23,7 @@ const createCard = (item, index) => {
     <div class="card">
       <div class="card-image">
         <figure class="image">
-            <img src="${img}" loading="${index < 2 ? 'eager' : 'lazy'}">
+            <img src="${img}" loading="${index < 2 ? 'eager' : 'lazy'}" alt="">
         </figure>
       </div>
       <div class="card-content">

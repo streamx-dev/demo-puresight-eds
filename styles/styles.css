@@ -131,6 +131,16 @@ main > .section > *,
   }
 }
 
+.is-48x48 img {
+  width: 48px;
+  height: 48px;
+}
+
+.is-96x96 img {
+  width: 96px;
+  height: 96px;
+}
+
 /* Cumulative Layout Shift Improvments */
 body > header {
   height: var(--nav-height);

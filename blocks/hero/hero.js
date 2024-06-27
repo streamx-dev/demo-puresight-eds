@@ -31,6 +31,7 @@ export default function decorate(block) {
   image.parentElement.remove();
   image.classList.add('image', 'is-square');
   image.querySelector('img').setAttribute('fetchpriority', 'high');
+  image.removeAttribute('loading');
 
   if (ctaButton) {
     ctaButton.parentElement.remove();
@@ -70,9 +71,7 @@ export default function decorate(block) {
             </section>
           </div>
           <div class="column ">
-            <a class="">
-              ${image.outerHTML}
-            </a>
+            ${image.outerHTML}
           </div>
         </div>
       </div>

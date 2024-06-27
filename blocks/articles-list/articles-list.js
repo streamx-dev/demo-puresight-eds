@@ -1,12 +1,15 @@
+import { getTextLabel } from '../../scripts/commons.js';
+
 const rednerArticle = ({
-  imgLink, img, heading, description, link, author, date, readTime,
+  img, heading, description, link, author, date, readTime,
 }) => {
+  const readMoreLable = `Read more about: ${heading}`;
   const articleFragment = document.createRange().createContextualFragment(`
     <div class="column">
-      <div class="container  ">
-        <a href="${imgLink}" class="">
+      <div class="container">
+        <a href="${link}" aria-label="${getTextLabel(readMoreLable)}">
           <figure class="image is-2by3 ">
-            <img src="${img}">
+            <img src="${img}" alt="">
           </figure>
         </a>
         <div class="content is-medium  has-text-grey-700">
@@ -18,7 +21,7 @@ const rednerArticle = ({
         <div class="content is-small  has-text-grey-700">
           <p>${author} ${date} ${readTime}</p>
         </div>
-        <a href="${link}" class="button is-normal is-dark">
+        <a href="${link}" class="button is-normal is-dark" aria-label="${getTextLabel(readMoreLable)}">
           <span class="icon  ">
             <i class="mdi fa-lg mdi-arrow-right" aria-hidden="false"></i>
           </span>

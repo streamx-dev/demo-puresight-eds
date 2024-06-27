@@ -1,4 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
+import { getTextLabel } from '../../scripts/commons.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -16,6 +17,7 @@ export default async function decorate(block) {
 
   const logoIcon = firstColumn.querySelector('picture').parentElement;
   logoIcon.classList.add('image', 'is-48x48');
+  logoIcon.querySelector('img')?.setAttribute('alt', getTextLabel('Puresight logo'));
   logoIcon.parentElement.remove();
 
   const firstColumnParagraphsHTML = [...firstColumn.querySelectorAll('p')].map((p) => {

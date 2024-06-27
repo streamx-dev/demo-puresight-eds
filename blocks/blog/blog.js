@@ -27,6 +27,8 @@ const renderMainArticle = ({
                   <img
                     alt="${author}"
                     class="is-rounded"
+                    width="32"
+                    height="32"
                     src="${avatar}"
                   />
                 </span>

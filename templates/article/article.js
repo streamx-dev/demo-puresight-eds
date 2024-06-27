@@ -23,7 +23,7 @@ const renderArticleHeader = ({
       <article class="media">
         <figure class="media-left">
             <p class="image is-48x48">
-              <img class="is-rounded" src="${avatarLink}">
+              <img class="is-rounded" src="${avatarLink}" alt="${author}">
             </p>
         </figure>
         <div class="media-content">
@@ -79,7 +79,7 @@ const renderAuthorBio = ({
       <article class="id media">
         <figure class="photo media-left">
             <p class="image is-96x96">
-              <img src="${avatarLink}" class="is-rounded">
+              <img src="${avatarLink}" class="is-rounded" alt="${author}">
             </p>
         </figure>
         <div class="media-content">
