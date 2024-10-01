@@ -33,15 +33,27 @@ jobs:
             echo "Cannot fetch page from EDS. Status code is $edsResponseCode"
             exit 1
           fi
-          streamxKey=${{ vars.STREAMX_PAGE_PUBLICATION_API }}${{ vars.STREAMX_KEY_PREFIX }}$PAGE_PATH
-          echo "StreamX URL: $streamxKey"
-          streamxResponseCode=$(curl -i -X PUT $streamxKey \
+          streamxApi=${{ vars.STREAMX_PAGE_PUBLICATION_API }}
+          streamxKey="/published/puresight/pages$PAGE_PATH"
+          echo "StreamX URL: $streamxApi key: $streamxKey"
+          streamxResponseCode=$(curl -i -X PUT $streamxApi \
             --write-out %{http_code} \
             --insecure \
             --output streamx_response.txt \
             -H "Authorization: Bearer ${{ secrets.STREAMX_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -d "{\"content\": {\"bytes\": $pageHtml}}")
+            -d "{
+                   \"key\" : \"$streamxKey\",
+                   \"action\" : \"publish\",
+                   \"eventTime\" : null,
+                   \"properties\" : { },
+                   \"payload\" : {
+                     \"dev.streamx.blueprints.data.Page\" : {
+                       \"content\" : {
+                         \"bytes\" : \"$pageHtml\"
+                     }
+                   }
+                }")
           echo -e "StreamX response:\n$(cat streamx_response.txt)"
           if [ $streamxResponseCode != 202 ]; then
             echo "Cannot publish to StreamX. Status code is: $streamxResponseCode"

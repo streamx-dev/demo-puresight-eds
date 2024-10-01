@@ -23,12 +23,21 @@ jobs:
         run: |
           sleep 1s
           PAGE_PATH=$(echo "${{ github.event.client_payload.path }}" | sed 's/\.md$//g')
-          streamxKey=${{ vars.STREAMX_PAGE_PUBLICATION_API }}${{ vars.STREAMX_KEY_PREFIX }}$PAGE_PATH
-          echo "StreamX URL: $streamxKey"
-          streamxResponseCode=$(curl -i -X DELETE $streamxKey \
+          streamxApi=${{ vars.STREAMX_PAGE_PUBLICATION_API }}
+          streamxKey="/published/puresight/pages$PAGE_PATH"
+          echo "StreamX URL: $streamxApi key: $streamxKey"
+          streamxResponseCode=$(curl -i -X PUT $streamxApi \
             --write-out %{http_code} \
             --output streamx_response.txt \
-            -H "Authorization: Bearer ${{ secrets.STREAMX_TOKEN }}")
+            -H "Authorization: Bearer ${{ secrets.STREAMX_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+                   \"key\" : \"$streamxKey\",
+                   \"action\" : \"unpublish\",
+                   \"eventTime\" : null,
+                   \"properties\" : { },
+                   \"payload\" : null
+                }")
           echo -e "StreamX response:\n$(cat streamx_response.txt)"
           if [ $streamxResponseCode != 202 ]; then
             echo "Cannot unpublish from StreamX. Status code is: $streamxResponseCode"
