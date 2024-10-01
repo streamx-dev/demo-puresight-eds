@@ -24,7 +24,7 @@ jobs:
           sleep 1s
           PAGE_PATH=$(echo "${{ github.event.client_payload.path }}" | sed 's/\.md$//g')
           streamxApi=${{ vars.STREAMX_PAGE_PUBLICATION_API }}
-          streamxKey="/published/puresight/pages$PAGE_PATH"
+          streamxKey="${{ vars.STREAMX_KEY_PREFIX }}$PAGE_PATH"
           echo "StreamX URL: $streamxApi key: $streamxKey"
           streamxResponseCode=$(curl -i -X PUT $streamxApi \
             --write-out %{http_code} \
