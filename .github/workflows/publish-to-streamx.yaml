@@ -50,7 +50,7 @@ jobs:
                    \"payload\" : {
                      \"dev.streamx.blueprints.data.Page\" : {
                        \"content\" : {
-                         \"bytes\" : \"$pageHtml\"
+                         \"bytes\" : $pageHtml
                      }
                    }
                 }")
