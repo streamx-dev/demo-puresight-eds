@@ -24,7 +24,7 @@ jobs:
           sleep 1s
           PAGE_PATH=$(echo "${{ github.event.client_payload.path }}" | sed 's/\.md$//g')
           streamxApi=${{ vars.STREAMX_PAGE_PUBLICATION_API }}
-          streamxKey="${{ vars.STREAMX_KEY_PREFIX }}$PAGE_PATH"
+          streamxKey="$PAGE_PATH"
           echo "StreamX URL: $streamxApi key: $streamxKey"
           streamxResponseCode=$(curl -i -X POST $streamxApi \
             --write-out %{http_code} \
@@ -45,8 +45,8 @@ jobs:
           fi
           json_content=$(cat streamx_response.txt)
           key_value=$(echo "$json_content" | grep -o '"success": *{[^}]*}' | grep -o '"key": *"[^"]*"' | sed 's/"key": *"//;s/"//')
-          if [[ "$key_value" != "$PAGE_PATH" ]]; then
-            echo "Response does not contain expected key"
+          if [[ "$key_value" != "$streamxKey" ]]; then
+            echo "Response does not contain success status with expected key"
             exit 1
           fi
         shell: bash
