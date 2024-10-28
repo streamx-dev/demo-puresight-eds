@@ -59,4 +59,10 @@ jobs:
             echo "Cannot publish to StreamX. Status code is: $streamxResponseCode"
             exit 1
           fi
+          json_content=$(cat streamx_response.txt)
+          key_value=$(echo "$json_content" | grep -o '"success": *{[^}]*}' | grep -o '"key": *"[^"]*"' | sed 's/"key": *"//;s/"//')
+          if [[ "$key_value" != "$PAGE_PATH" ]]; then
+            echo "Response does not contain expected key"
+            exit 1
+          fi
         shell: bash
