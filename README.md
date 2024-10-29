@@ -1,9 +1,26 @@
-# Your Project's Title...
-Your project's description...
+# PureSight demo with Edge Delivery Services
+
+This repo is part of StreamX demo. See https://teamds.atlassian.net/wiki/spaces/StreamX/pages/733970445/StreamX+demo+environment+setup
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview (https://main--{repo}--{owner}.hlx.page/):
+  https://main--demo-puresight-eds--streamx-dev.hlx.page/
+- Live (https://main--{repo}--{owner}.hlx.live/):
+  https://main--demo-puresight-eds--streamx-dev.hlx.live/
+
+## Docs with content
+
+Google Drive with docs: https://drive.google.com/drive/folders/0AD7Au_cSyxqQUk9PVA
+
+## Editing docs and publishing content:
+
+Install browser plugin as described here: https://www.aem.live/developer/tutorial#preview-and-publish-your-content
+
+Configure the plugin:
+- open plugin options
+- add new project
+- set organization name and project name according to GitHub repository name and organization
+- validate if Google docs preview and live view are displayed using the proper environments as described above
 
 ## Installation
 
@@ -25,12 +42,12 @@ npm run lint
 
 ## Pages list with documents and blocks lists:
 
-The [index](https://main--puresight-demo--websight-rnd.hlx.page) page.
+The [index](https://main--demo-puresight-eds--streamx-dev.hlx.page) page.
 
 ---
 
 ### Homepage
-Preview link: [Homepage](https://main--puresight-demo--websight-rnd.hlx.page/pages/homepage) \
+Preview link: [Homepage](https://main--demo-puresight-eds--streamx-dev.hlx.page/pages/homepage) \
 Document with content: [Hompage doc](https://docs.google.com/document/d/1djq9N8aBBwRju_D9QQqrP0DHuA77_Jw3xgpxmFAE1o0/edit)
 
 Homepage blocks list:
@@ -46,7 +63,7 @@ Homepage blocks list:
 
 ### Blog
 
-Preview link: [Blog](https://main--puresight-demo--websight-rnd.hlx.page/pages/blog) \
+Preview link: [Blog](https://main--demo-puresight-eds--streamx-dev.hlx.page/pages/blog) \
 Document with content: [Blog doc](https://docs.google.com/document/d/1YurrOa8SQfUMInQ1kBB6INLEGxrsjJO8MzZKfavQimY/edit) \
 Articles list data: [Google sheets](https://docs.google.com/spreadsheets/d/1BlG-jJboqjobXv5Ob-rjTrSWsxywWK6ofj7FZA-vhTo/edit#gid=0)
 
@@ -57,7 +74,7 @@ Blog blocks list:
 
 ### Article
 
-Preview link: [Article](https://main--puresight-demo--websight-rnd.hlx.page/pages/article) \
+Preview link: [Article](https://main--demo-puresight-eds--streamx-dev.hlx.page/pages/article) \
 Document with content: [Blog doc](https://docs.google.com/document/d/1CQb0G7dBjPdVBJG5OP6RJUXTUwDyKPYM_QuRWKOlZlk/edit)
 
 Articles blocks list:
@@ -67,7 +84,7 @@ Articles blocks list:
 
 ### Products
 
-Preview link: [Products](https://main--puresight-demo--websight-rnd.hlx.page/pages/product) \
+Preview link: [Products](https://main--demo-puresight-eds--streamx-dev.hlx.page/pages/product) \
 Document with content: [Products doc](https://docs.google.com/document/d/12-rAJ178xUedsNPfyG66I7yuTZ9G9O769FB_qTqntNg/edit)
 Products list data: [Google sheets](https://docs.google.com/spreadsheets/d/1SEIydwRrtQHA2gOwk5w72KuiHPDSyYGWCez4HaG-JNo/edit#gid=0)
 
@@ -110,7 +127,7 @@ call to StreamX instance.
 Workflows require few configuration options defined as variables and secrets:
 
 - Variable `EDS_DOMAIN_URL`: a URL to Edge Delivery Services domain,
-  e.g.: `https://main--puresight-demo--websight-rnd.hlx.live`.
+  e.g.: `https://main--demo-puresight-eds--streamx-dev.hlx.live`.
 - Variable `STREAMX_PAGE_PUBLICATION_API`: a URL to StreamX publication API,
   e.g.: `https://ingestion.streamx.tech/publications/v1/channels/pages/messages`.
 - Secret `STREAMX_TOKEN`: JWT value required by StreamX publication API.

@@ -2,6 +2,10 @@ Please always provide the [GitHub issue(s)](../issues) your PR is for, as well a
 
 Fix #<gh-issue-id>
 
-Test URLs:
-- Before: https://main--{repo}--{owner}.hlx.live/
-- After: https://<branch>--{repo}--{owner}.hlx.live/
+Test URLs preview:
+- Before https://main--demo-puresight-eds--streamx-dev.hlx.page/
+- https://<your-branch-name>--demo-puresight-eds--streamx-dev.hlx.page/
+
+Test URLs live:
+- Before: https://main--demo-puresight-eds--streamx-dev.hlx.live/
+- After: https://<your-branch-name>--demo-puresight-eds--streamx-dev.hlx.live/
