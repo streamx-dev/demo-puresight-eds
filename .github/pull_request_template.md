@@ -19,7 +19,7 @@
 Please always provide test URLs where your change can be observed (before and after):
 
 EXAMPLE:
-Fix <gh-issue-id>
+Fix #<gh-issue-id>
 
 Test URLs preview:
 - Before https://main--demo-puresight-eds--streamx-dev.hlx.page/
